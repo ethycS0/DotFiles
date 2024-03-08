@@ -38,6 +38,7 @@ Create and manage directories as saved on the system.
 
 Additional dotfiles can be backed up.
 Use following command for not having to delete original files.
+#### Always git commit before following command
 
 ```
 $ stow --adopt .
