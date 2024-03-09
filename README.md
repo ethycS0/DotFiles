@@ -43,3 +43,6 @@ Use following command for not having to delete original files.
 ```
 $ stow --adopt .
 ```
+## Notes
+
+Download oh my zsh before configuration with zshrc.
