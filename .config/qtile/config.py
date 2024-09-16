@@ -132,8 +132,8 @@ keys = [
     Key(
         [mod, "shift"],
         "a",
-        lazy.spawncmd("qemu-system-x86_64 -enable-kvm -cpu host -boot order=d -drive file=~/Qemu/Windows/image.img -m 8G -vga virtio -display sdl,gl=on -smp cores=2,threads=2,sockets=1 &") ,
-        desc="battery",),
+        lazy.spawn("flameshot gui"),
+        desc="Screenshot",),
 
     Key(
         [mod], "j", lazy.layout.down(), desc="Move focus down in current stack pane"
@@ -156,21 +156,21 @@ keys = [
     # Move windows within group
     Key(
         [mod, "shift"],
-        "Down",
+        "j",
         lazy.layout.shuffle_down(),
         lazy.layout.move_down(),
         desc="Move windows down in current stack",
     ),
     Key(
         [mod, "shift"],
-        "Up",
+        "k",
         lazy.layout.shuffle_up(),
         lazy.layout.move_up(),
         desc="Move windows up in current stack",
     ),
     Key(
         [mod, "shift"],
-        "Left",
+        "h",
         lazy.layout.shuffle_left(),
         # lazy.layout.swap_left(),
         # lazy.layout.client_to_previous(),
@@ -179,7 +179,7 @@ keys = [
     ),
     Key(
         [mod, "shift"],
-        "Right",
+        "l",
         lazy.layout.shuffle_right(),
         # lazy.layout.swap_right(),
         # lazy.layout.client_to_next(),
@@ -189,7 +189,7 @@ keys = [
     # Flip layouts for bsp
     Key(
         [mod, "control"],
-        "Down",
+        "j",
         lazy.layout.flip_down(),
         # lazy.layout.section_down(),
         # lazy.layout.integrate_down(),
@@ -197,7 +197,7 @@ keys = [
     ),
     Key(
         [mod, "control"],
-        "Up",
+        "k",
         lazy.layout.flip_up(),
         # lazy.layout.section_up(),
         # lazy.layout.integrate_up(),
@@ -205,7 +205,7 @@ keys = [
     ),
     Key(
         [mod, "control"],
-        "Left",
+        "h",
         lazy.layout.flip_left(),
         lazy.layout.swap_column_left(),
         # lazy.layout.integrate_left(),
@@ -213,7 +213,7 @@ keys = [
     ),
     Key(
         [mod, "control"],
-        "Right",
+        "l",
         lazy.layout.flip_right(),
         lazy.layout.swap_column_left(),
         # lazy.layout.integrate_right(),
@@ -222,28 +222,28 @@ keys = [
     # Resize windows
     Key(
         [mod, "mod1"],
-        "Left",
+        "h",
         resize_left,
         # lazy.layout.grow_width(-30),
         desc="Resize window left",
     ),
     Key(
         [mod, "mod1"],
-        "Right",
+        "l",
         resize_right,
         # lazy.layout.grow_width(30),
         desc="Resize window Right",
     ),
     Key(
         [mod, "mod1"],
-        "Up",
+        "k",
         resize_up,
         # lazy.layout.grow_height(30),
         desc="Resize windows upward",
     ),
     Key(
         [mod, "mod1"],
-        "Down",
+        "j",
         resize_down,
         # lazy.layout.grow_height(-30),
         desc="Resize windows downward",
@@ -287,7 +287,7 @@ keys = [
 Key(
         [mod],
         "backslash",
-        lazy.spawn("thunar"),
+        lazy.spawn("dolphin"),
         desc="Launch files",
     ),
 ]
@@ -331,9 +331,9 @@ for i in groups:
     )
 
 layout_theme = {
-    "border_width": 3,
-    "margin": 3,
-    "border_focus": "3b4252",
+    "border_width": 2,
+    "margin": 2,
+    "border_focus": "002FFF",
     "border_normal": "01060E",
     "font": "JetBrainsMono Nerd Font",
     "grow_amount": 2,

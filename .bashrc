@@ -1,7 +1,8 @@
 #
 # ~/.bashrc
 #
-
+export QT_QPA_PLATFORMTHEME="qt6ct"
+export QT_STYLE_OVERRIDE="qt6ct" 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -33,3 +34,4 @@ alias mouse-reset="xinput --set-prop 16 'libinput Accel Profile Enabled' 0, 1"
 # Networking
 alias mon-mode="sudo airmon-ng check kil && sudo airmon-ng start wlo1"
 alias norm-mode="sudo airmon-ng stop wlo1mon && sudo systemctl start NetworkManager"
+. "$HOME/.cargo/env"

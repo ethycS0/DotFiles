@@ -4,6 +4,9 @@ local plugins = {
     lazy = false,
   },
   {
+    "nvim-neotest/nvim-nio",
+  },
+  {
     "rcarriga/nvim-dap-ui",
     event = "VeryLazy",
     dependencies = "mfussenegger/nvim-dap",
@@ -46,6 +49,26 @@ local plugins = {
       require "custom.configs.lspconfig"
     end,
   },
+    {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = "cd app && yarn install",
+    init = function()
+        vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
+    },
+      {
+  "HakonHarnes/img-clip.nvim",
+  event = "VeryLazy",
+  opts = {
+    -- add options here
+    -- or leave it empty to use the default settings
+  },
+  keys = {
+        { "<leader>p", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
+    },
+  },
   {
     "williamboman/mason.nvim",
     opts = {
@@ -53,8 +76,11 @@ local plugins = {
         "clangd",
         "clang-format",
         "codelldb",
+        "asm-lsp",
+        "python-lsp-server",
+        "marksman",
       }
     }
   }
-} 
+}
 return plugins
