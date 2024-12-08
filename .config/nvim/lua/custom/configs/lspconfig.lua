@@ -22,12 +22,25 @@ lspconfig.asm_lsp.setup({
 
 lspconfig.clangd.setup ({
   on_attach = function(client, bufnr)
-    client.server_capabilities.signatureHelpProvider = false
-    on_attach(client, bufnr)
+        client.server_capabilities.documentFormattingProvider = true
+        client.server_capabilities.documentRangeFormattingProvider = true
+        client.server_capabilities.signatureHelpProvider = false
+        capabilities.textDocument.completion.completionItem.snippetSupport = true
+        vim.bo[bufnr].tabstop = 8
+        vim.bo[bufnr].shiftwidth = 8
+        vim.bo[bufnr].expandtab = true
   end,
   capabilities = capabilities,
   filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
-  cmd = { "clangd" },
+  cmd = {       "clangd",
+                "--background-index",
+                "--clang-tidy",
+                "--header-insertion=iwyu",
+                "--completion-style=detailed",
+                "--function-arg-placeholders",
+                "--fallback-style=llvm",
+                "--header-insertion=never",
+        },
   root_dir = lspconfig.util.root_pattern(
           '.clangd',
           '.clang-tidy',
@@ -47,3 +60,21 @@ require'lspconfig'.marksman.setup({
     root_dir = lspconfig.util.root_pattern(".git", ".marksman.toml"),
     single_file_support = true,
 })
+
+require'lspconfig'.rust_analyzer.setup{
+        settings = {
+                ['rust-analyzer'] = {
+                diagnostics = {
+                enable = false;
+                        }
+                }
+        },
+        capabilities = {
+                experimental = {
+                        serverStatusNotification = true
+                }
+        },
+        cmd = { "rust-analyzer" },
+        filetypes = { "rust" },
+
+}

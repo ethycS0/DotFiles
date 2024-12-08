@@ -287,7 +287,7 @@ keys = [
 Key(
         [mod],
         "backslash",
-        lazy.spawn("dolphin"),
+        lazy.spawn("krusader"),
         desc="Launch files",
     ),
 ]
