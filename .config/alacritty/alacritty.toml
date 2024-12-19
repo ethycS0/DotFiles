@@ -33,7 +33,7 @@ style = "Block"
 TERM = "alacritty"
 
 [font]
-size = 7
+size = 9
 
   [font.bold]
   style = "Normal"

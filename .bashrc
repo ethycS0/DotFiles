@@ -1,6 +1,7 @@
 #
 # ~/.bashrc
 #
+export PATH=$HOME/bin:/usr/local/bin:$PATH:/opt/cuda/extras/compute-sanitizer:$PATH
 export QT_QPA_PLATFORMTHEME="qt6ct"
 export QT_STYLE_OVERRIDE="qt6ct" 
 # If not running interactively, don't do anything
